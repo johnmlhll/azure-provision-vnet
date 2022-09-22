@@ -1,0 +1,95 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vnetName": {
+            "type": "string",
+            "metadata": {
+                "description": "V-Net name"
+            }
+        },
+        "vnetAddressPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "V-Net address Prefix"
+            }
+        },
+        "subnet1Name": {
+            "type": "string",
+            "defaultValue": "Public Subnet",
+            "metadata": {
+                "description": "Public subnet name"
+            }
+        },
+        "subnet1Prefix": {
+            "type": "string",
+            "defaultValue": "10.0.0.0/24",
+            "metatdata": {
+                "description": "Public subnet prefix"
+            }
+        },
+        "subnet2Name": {
+            "type": "string",
+            "defaultValue": "Private Subnet",
+            "metadata": {
+                "description": "Private subnet name"
+            }
+        },
+        "subnet2Prefix": {
+            "type": "string",
+            "defaultValue": "10.0.1.0/24",
+            "metadata": {
+                "description": "Private subnet prefix"
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Azure location of deployed resources"
+            }
+        }
+    },
+    "variables": {},
+    "resources": [
+            {
+                "type": "Microsoft.Network/virtualNetworks",
+                "apiVersion": "2020-05-01",
+                "name": "[parameters('vnetName)']",
+                "location": "[parameters('location')]",
+                "properties": {
+                    "addressSpace": {
+                        "addressPrefixes": [
+                            "[parameters('vnetAddressPrefix')]"
+                        ]
+                    }
+                },
+                "resources": [
+                    {
+                        "type": "subnets",
+                        "apiVersion": "2020-05-01",
+                        "name": "[parameters('subnet1Name)]",
+                        "location": "[parameters('location')]",
+                        "dependsOn": [
+                            "[parameters('vnetName')"
+                        ],
+                        "properties": {
+                            "addressPrefix": "[parameters('subnet1Prefix')]"
+                        }
+                    },
+                    {
+                        "type": "subnets",
+                        "apiVersion": "2020-05-01",
+                        "name": "[parameters('subnet2Name')]",
+                        "location": "[parameters('location')]",
+                        "dependsOn": [
+                            "[parameters('vnetName"
+                        ],
+                        "properties": {
+                            "addressPrefix": "[parameters('subnet2Prefix')]"
+                        }
+                    }
+                ]
+            }
+        ]
+}
