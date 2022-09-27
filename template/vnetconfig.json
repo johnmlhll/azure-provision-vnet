@@ -24,7 +24,7 @@
         "subnet1Prefix": {
             "type": "string",
             "defaultValue": "10.0.0.0/24",
-            "metatdata": {
+            "metadata": {
                 "description": "Public subnet prefix"
             }
         },
@@ -71,7 +71,7 @@
                         "name": "[parameters('subnet1Name)]",
                         "location": "[parameters('location')]",
                         "dependsOn": [
-                            "[parameters('vnetName')"
+                            "[parameters('vnetName')]"
                         ],
                         "properties": {
                             "addressPrefix": "[parameters('subnet1Prefix')]"
@@ -83,7 +83,7 @@
                         "name": "[parameters('subnet2Name')]",
                         "location": "[parameters('location')]",
                         "dependsOn": [
-                            "[parameters('vnetName"
+                            "[parameters('vnetName')]"
                         ],
                         "properties": {
                             "addressPrefix": "[parameters('subnet2Prefix')]"
