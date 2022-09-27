@@ -16,7 +16,7 @@ stages :
               deploymentScope: 'Resource Group'
               azureResourceManagerConnection: 'azure-arm-demo-connection'
               subscriptionId: $(demoSubSecret)
-              action: 'Create or Update Resource Group'
+              action: 'Create Or Update Resource Group'
               resourceGroupName: 'demoRG'
               location: 'westeurope'
               templateLocation: 'Linked artifact'
