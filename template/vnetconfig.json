@@ -68,7 +68,7 @@
                     {
                         "type": "subnets",
                         "apiVersion": "2020-05-01",
-                        "name": "[parameters('subnet1Name)]",
+                        "name": "[parameters('subnet1Name')]",
                         "location": "[parameters('location')]",
                         "dependsOn": [
                             "[parameters('vnetName')]"
