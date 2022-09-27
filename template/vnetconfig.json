@@ -84,7 +84,7 @@
                         "location": "[parameters('location')]",
                         "dependsOn": [
                             "[parameters('vnetName')]",
-                            "[parameters('subnet1Name']"
+                            "[parameters('subnet1Name')]"
                         ],
                         "properties": {
                             "addressPrefix": "[parameters('subnet2Prefix')]"
