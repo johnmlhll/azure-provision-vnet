@@ -13,7 +13,7 @@ stages :
           - checkout: self
           - task: AzureResourceManagerTemplateDeployment@3
             inputs:
-              deploymentScope: 'Resource Group'
+              deploymentScope: 'Management Group'
               azureResourceManagerConnection: 'azure-arm-demo-connection'
               subscriptionId: $(demoSubSecret)
               action: 'Create or Update Resource Group'
