@@ -20,7 +20,7 @@ stages :
               resourceGroupName: 'demoRG'
               location: 'westeurope'
               templateLocation: 'Linked artifact'
-              csmFile: '$(System.DefaultWorkingDirectory)/template/vnet-config.json'
+              csmFile: '$(System.DefaultWorkingDirectory)/template/vnetconfig.json'
               csmParametersFile: '$(System.DefaultWorkingDirectory)/template/vnet.parameters.json'
               deploymentMode: 'Incremental'
 
