@@ -55,7 +55,7 @@
             {
                 "type": "Microsoft.Network/virtualNetworks",
                 "apiVersion": "2020-05-01",
-                "name": "[parameters('vnetName)']",
+                "name": "[parameters('vnetName')]",
                 "location": "[parameters('location')]",
                 "properties": {
                     "addressSpace": {
@@ -83,7 +83,8 @@
                         "name": "[parameters('subnet2Name')]",
                         "location": "[parameters('location')]",
                         "dependsOn": [
-                            "[parameters('vnetName')]"
+                            "[parameters('vnetName')]",
+                            "[parameters('subnet1Name']"
                         ],
                         "properties": {
                             "addressPrefix": "[parameters('subnet2Prefix')]"
